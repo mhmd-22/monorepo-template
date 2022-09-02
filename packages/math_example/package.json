@@ -1,0 +1,17 @@
+{
+	"name": "math_example",
+	"version": "0.0.1-alpha.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\"",
+		"build": "tsc",
+		"dev": "tsc -w"
+	},
+	"dependencies": {
+		"math": "workspace:*"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
