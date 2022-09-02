@@ -11,3 +11,5 @@ packages/**/package
 apps
 
 .turbo
+.pnpm-store
+.pnpm-debug.log
