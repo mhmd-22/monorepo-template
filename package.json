@@ -1,0 +1,69 @@
+{
+	"name": "monorepo-template",
+	"license": "MIT",
+	"packageManager": "pnpm@7.8.0",
+	"scripts": {
+		"prettier:run": "prettier --ignore-path .eslintignore",
+		"lint": "pnpm prettier:run --check packages/** && eslint packages/**",
+		"format": "pnpm prettier:run --write packages/**",
+		"test": "turbo run test",
+		"build": "turbo run build",
+		"prepare": "husky install",
+		"release": "changesets publish",
+		"ci:release": "pnpm build && pnpm release"
+	},
+	"lint-staged": {
+		"*.{ts,js,json,md,tsx,,jsx}": [
+			"prettier --ignore-path .eslintignore --check",
+			"eslint"
+		]
+	},
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	},
+	"prettier": {
+		"useTabs": true,
+		"singleQuote": false,
+		"trailingComma": "none",
+		"printWidth": 90
+	},
+	"eslintConfig": {
+		"root": true,
+		"env": {
+			"browser": true,
+			"es2021": true,
+			"node": true
+		},
+		"extends": [
+			"eslint:recommended",
+			"plugin:@typescript-eslint/recommended"
+		],
+		"parser": "@typescript-eslint/parser",
+		"parserOptions": {
+			"ecmaVersion": "latest",
+			"sourceType": "module"
+		},
+		"plugins": [
+			"@typescript-eslint",
+			"prettier"
+		],
+		"rules": {}
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.24.4",
+		"@commitlint/cli": "^17.1.2",
+		"@commitlint/config-conventional": "^17.1.0",
+		"@typescript-eslint/eslint-plugin": "^5.36.1",
+		"@typescript-eslint/parser": "^5.36.1",
+		"conventional-changelog-cli": "^2.2.2",
+		"eslint": "^8.23.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"husky": "^8.0.0",
+		"lint-staged": "^13.0.3",
+		"prettier": "^2.7.1",
+		"turbo": "^1.4.4",
+		"typescript": "^4.8.2"
+	}
+}

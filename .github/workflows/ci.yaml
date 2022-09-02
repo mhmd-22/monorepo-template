@@ -1,0 +1,29 @@
+name: CI
+on: [push, pull_request]
+
+env:
+    CI: true
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        steps:
+            - uses: actions/checkout@v3
+            - uses: pnpm/action-setup@v2.2.2
+            - uses: actions/setup-node@v3
+              with:
+                  node-version: 16
+                  cache: pnpm
+            - name: Installing dependencies
+              run: pnpm install
+            - name: Building dependencies
+              run: pnpm build
+            - name: Linting
+              run: pnpm lint
+            - name: Testing dependencies
+              run: pnpm test
