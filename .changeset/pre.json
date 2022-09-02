@@ -6,5 +6,8 @@
     "math": "0.0.1-alpha.0",
     "math_example": "0.0.1-alpha.2"
   },
-  "changesets": []
+  "changesets": [
+    "khaki-toes-search",
+    "rich-kids-dream"
+  ]
 }
