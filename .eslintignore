@@ -6,3 +6,5 @@
 **/dist
 **/CHANGELOG.md
 **/pnpm-lock.yaml
+
+.pnpm-store
