@@ -5,3 +5,7 @@ export function add(x: number, y: number) {
 export function sub(x: number, y: number) {
 	return x - y;
 }
+
+export function div(x: number, y: number) {
+	return x / y;
+}
